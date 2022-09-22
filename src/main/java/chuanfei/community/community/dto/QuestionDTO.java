@@ -10,7 +10,7 @@ public class QuestionDTO {
     private String tag;
     private Long gmtCreate;  //Java的Long对应数据库的bigint
     private Long gmtModified;
-    private Integer creator;
+    private String creator;
     private Integer viewCount;
     private Integer likeCount;
     private Integer commentCount;

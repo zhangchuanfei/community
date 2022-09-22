@@ -46,8 +46,8 @@ public class QuestionService {
 
     }
 
-    public PaginationDTO list(Integer userId, Integer page, Integer size) {
-        Integer totalCount = questionMapper.countByUserId(userId);
+    public PaginationDTO list(String accountId, Integer page, Integer size) {
+        Integer totalCount = questionMapper.countByUserId(accountId);
         PaginationDTO paginationDTO = new PaginationDTO();
         paginationDTO.setPagination(totalCount, page, size);
         if (page < 1){
@@ -60,7 +60,7 @@ public class QuestionService {
         Integer offset = size * (page - 1);
         List<QuestionDTO> questionDTOList = new ArrayList<>();
         //把数据库的一个表放到一个列表中，一个Question就是一条记录。
-        List<Question> questions = questionMapper.listByUser(userId,offset, size);
+        List<Question> questions = questionMapper.listByUser(accountId,offset, size);
         for (Question question : questions){
             User user = userMapper.findById(question.getCreator());
             QuestionDTO questionDTO = new QuestionDTO();
