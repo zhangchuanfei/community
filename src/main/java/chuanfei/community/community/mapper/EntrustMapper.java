@@ -16,4 +16,13 @@ public interface EntrustMapper {
 
     @Select("select * from entrust where order_id = #{orderId}")
     List<Entrust> findByOrderId(@Param("orderId") Long orderId);
+
+    @Select("select * from entrust where order_id = #{orderId}")
+    Entrust findEntrust(@Param("orderId") Long orderId);
+
+    @Select("select * from entrust where entrust_id = #{entrustId}")
+    Entrust findByEntrustId(@Param("entrustId") Integer entrustId);
+
+    @Select("select entrust_id from entrust where order_id = #{orderId}")
+    Integer findEntrustId(@Param("orderId") Long orderId);
 }

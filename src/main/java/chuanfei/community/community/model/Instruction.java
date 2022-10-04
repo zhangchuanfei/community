@@ -13,6 +13,7 @@ public class Instruction {
     private String direction;
     private String orderStatus;
     private Integer transactionNumber;
-    private Long createTime;  //Java的Long对应数据库的bigint
-    private Long modifyTime;
+    private String createTime;  //Java的Long对应数据库的bigint
+    private String modifyTime;
+    private Integer entrustNumber;
 }

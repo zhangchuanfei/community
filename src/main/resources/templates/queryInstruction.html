@@ -1,10 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <title>单个指令查询</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/community.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-$END$
+<div th:insert="~{navigation :: nav}"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+            <h2><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>查询单个指令</h2>
+            <hr>
+
+            <form action="/queryOneInstruction" method="post">
+                <div class="form-group">
+                    <label for="orderId">指令编号</label>
+                    <input type="text" class="form-control" th:value="*{orderId}" id="orderId" name="orderId" placeholder="如：2022091600001">
+                </div>
+                <span class="alert alert_danger" th:text="${error}" th:if="${error!=null}"></span>
+                <button type="submit" class="btn btn-success btn-publish ">查询</button>
+                <div class="form-group">
+                    <label for="objectId">标的编号</label>
+                    <input type="text" class="form-control" th:value="*{objectId}" id="objectId" name="objectId">
+                </div>
+                <div class="form-group">
+                    <label for="market">交易市场</label>
+                    <input type="text" class="form-control" th:value="*{market}" id="market" name="market">
+                </div>
+                <div class="form-group">
+                    <label for="objectAbbreviation">标的简称</label>
+                    <input type="text" class="form-control" th:value="*{objectAbbreviation}" id="objectAbbreviation" name="objectAbbreviation">
+                </div>
+                <div class="form-group">
+                    <label for="objectPrice">标的价格</label>
+                    <input type="text" class="form-control" th:value="*{objectPrice}" id="objectPrice" name="objectPrice">
+                </div>
+                <div class="form-group">
+                    <label for="objectNumber">标的数量</label>
+                    <input type="text" class="form-control" th:value="*{objectNumber}" id="objectNumber" name="objectNumber">
+                </div>
+                <div class="form-group">
+                    <label for="entrustNumber">委托数量</label>
+                    <input type="text" class="form-control" th:value="*{entrustNumber}" id="entrustNumber" name="entrustNumber">
+                </div>
+                <div class="form-group">
+                    <label for="direction">交易方向</label>
+                    <input type="text" class="form-control" th:value="*{direction}" id="direction" name="direction">
+                </div>
+                <div class="form-group">
+                    <label for="orderStatus">指令状态</label>
+                    <input type="text" class="form-control" th:value="*{orderStatus}" id="orderStatus" name="orderStatus">
+                </div>
+                <div class="form-group">
+                    <label for="transactionNumber">成交数量</label>
+                    <input type="text" class="form-control" th:value="*{transactionNumber}" id="transactionNumber" name="transactionNumber">
+                </div>
+                <div class="form-group">
+                    <label for="createTime">下单时间</label>
+                    <input type="text" class="form-control" th:value="*{createTime}" id="createTime" name="createTime">
+                </div>
+                <div class="form-group">
+                    <label for="modifyTime">更新时间</label>
+                    <input type="text" class="form-control" th:value="*{modifyTime}" id="modifyTime" name="modifyTime">
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <h3>查询单个指令</h3>
+            • 请输入单个指令的指令编号 <br>
+        </div>
+    </div>
+</div>
 </body>
 </html>

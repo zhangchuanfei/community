@@ -8,5 +8,5 @@ public class Entrust {
     private Long orderId;
     private Float singleEntrustPrice;
     private Integer singleEntrustNumber;
-    private Long entrustTime;
+    private String entrustTime;
 }
